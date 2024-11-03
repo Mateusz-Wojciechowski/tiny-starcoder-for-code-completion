@@ -1,0 +1,266 @@
+[
+    {
+        "reference": "    return {char: [word for word in words if char in word] for char in (''.join(words)) if char.isalpha()}\n",
+        "hypothesis": "alpha_dict = {}\n    for word in words:\n        if word not in alpha_dict:\n            alpha_dict[word] =",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 5.555555555555555,
+            "bleu": 0.06482993212910186,
+            "rouge_l": 0.47058823529411764,
+            "code_bleu": 0.13877264240869613
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "    n = len(sorted_numbers)\n",
+        "hypothesis": "    n = len(sorted_numbers)\n",
+        "metrics": {
+            "exact_match": 1,
+            "chrf": 20.0,
+            "bleu": 0.5623413251903491,
+            "rouge_l": 1.0,
+            "code_bleu": 0.7643161313935813
+        },
+        "label": "Equivalent_Functional_Match"
+    },
+    {
+        "reference": "    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n",
+        "hypothesis": "return sorted_numbers[n//2]",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 7.042253521126761,
+            "bleu": 0.002738826828955665,
+            "rouge_l": 0.5000000000000001,
+            "code_bleu": 0.2806654001237746
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "    sorted_numbers = sorted(numbers)\n",
+        "hypothesis": "    sorted_numbers = sorted(numbers)\n",
+        "metrics": {
+            "exact_match": 1,
+            "chrf": 14.705882352941178,
+            "bleu": 0.5623413251903491,
+            "rouge_l": 1.0,
+            "code_bleu": 0.7643161313935813
+        },
+        "label": "Equivalent_Functional_Match"
+    },
+    {
+        "reference": "        if not pred(item):\n            return False\n    return True\n",
+        "hypothesis": "if pred(item):\n            return True\n    return False",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 12.195121951219514,
+            "bleu": 0.12657854156412163,
+            "rouge_l": 0.6666666666666666,
+            "code_bleu": 0.43672810508267407
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "    for item in iterable:\n        if not pred(item):\n",
+        "hypothesis": "if not iterable:\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 13.157894736842104,
+            "bleu": 0.07009437890436555,
+            "rouge_l": 0.36363636363636365,
+            "code_bleu": 0.2873873295768554
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "    return True\n\n\n",
+        "hypothesis": "   return True",
+        "metrics": {
+            "exact_match": 1,
+            "chrf": 35.714285714285715,
+            "bleu": 0.316227766016838,
+            "rouge_l": 1.0,
+            "code_bleu": 0.658113883008419
+        },
+        "label": "Perfect_Match"
+    },
+    {
+        "reference": "            return False\n    return True\n\n",
+        "hypothesis": "            return False\n        return True\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 20.0,
+            "bleu": 1.0,
+            "rouge_l": 1.0,
+            "code_bleu": 1.0
+        },
+        "label": "Perfect_Match"
+    },
+    {
+        "reference": "        log_journal.add_entry(log)\n        i += 1\n",
+        "hypothesis": "            if log.startswith('SSH.log'):\n                amount += 1\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 14.705882352941178,
+            "bleu": 0.11362193664674995,
+            "rouge_l": 0.42857142857142855,
+            "code_bleu": 0.4257197622517772
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "            break\n    return log_journal\n\n",
+        "hypothesis": "            return True\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 19.230769230769234,
+            "bleu": 0.09069748827745895,
+            "rouge_l": 0.3333333333333333,
+            "code_bleu": 0.30337002244210504
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n",
+        "hypothesis": "                self.ip_dict[ip] = [log]\\n\\n    def get_ip_dict(self):\\n        return self.ip_dict\"",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 8.92857142857143,
+            "bleu": 0.07730551756939454,
+            "rouge_l": 0.5714285714285714,
+            "code_bleu": 0.4098919596663173
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "            entry_other = Other(entry)\n            self.log_journal.append(entry_other)\n            self.append_ip_dict(entry_other)\n",
+        "hypothesis": "            self.append_date_dict(entry_other)\n\n    def append_date_dict(self, entry_other):\n        if isinstance",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 5.208333333333334,
+            "bleu": 0,
+            "rouge_l": 0.5161290322580646,
+            "code_bleu": 0.23214285714285715
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n",
+        "hypothesis": "            if date_match:\\n                date_lower = date_match.group(1)\\n                date_upper = date_match.group(\"",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 4.62962962962963,
+            "bleu": 0.03226013518927287,
+            "rouge_l": 0.5714285714285714,
+            "code_bleu": 0.14764180914898334
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "        for line in file:\n            item = QStandardItem(line)\n",
+        "hypothesis": "        for line in file:\\n            if line.startswith('Date:'):\\n                date_match = log_date_regex.search(line)\"",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 11.904761904761905,
+            "bleu": 0.12753431387594827,
+            "rouge_l": 0.4166666666666667,
+            "code_bleu": 0.16537000379349112
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n            if date_match:\n",
+        "hypothesis": "            if line.startswith('Date:'):\n                date_match = re.search(r'Date: (\\d{4})', line)",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 6.329113924050633,
+            "bleu": 0.0670144447096575,
+            "rouge_l": 0.38461538461538464,
+            "code_bleu": 0.15138037213257402
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "        path = tokens[5]\n\n",
+        "hypothesis": "        path = tokens[5] + \" \" + tokens[6] + \" \" + tokens[7]\n    return path\n\ndef get",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 27.77777777777778,
+            "bleu": 0.05692994482485313,
+            "rouge_l": 0.42857142857142855,
+            "code_bleu": 0.3671299529688741
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "        return output",
+        "hypothesis": "   return output",
+        "metrics": {
+            "exact_match": 1,
+            "chrf": 31.25,
+            "bleu": 0.316227766016838,
+            "rouge_l": 1.0,
+            "code_bleu": 0.658113883008419
+        },
+        "label": "Perfect_Match"
+    },
+    {
+        "reference": "    def __init__(self, n_actions, input_dims):\n",
+        "hypothesis": "    def __init__(self, input_dims, n_actions):\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 11.627906976744185,
+            "bleu": 0.16990442448471224,
+            "rouge_l": 0.7142857142857143,
+            "code_bleu": 0.589483644784758
+        },
+        "label": "Equivalent_Functional_Match"
+    },
+    {
+        "reference": "\n        self.qnet = nn.Sequential(\n",
+        "hypothesis": "        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n           ",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 17.857142857142854,
+            "bleu": 0.20205155046766235,
+            "rouge_l": 0.5333333333333333,
+            "code_bleu": 0.5492436877129098
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "        super().__init__()\n",
+        "hypothesis": "        super(QNet, self).__init__()\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, ",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 22.727272727272727,
+            "bleu": 0,
+            "rouge_l": 0.2857142857142857,
+            "code_bleu": 0.3214285714285714
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "        indices = random.sample(range(len(self.states)), self.batch_size)\n",
+        "hypothesis": "return self.data\n\n    def __len__(self):\n        return len(self.data)\n\n    def __getitem__(self, idx):",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 7.575757575757576,
+            "bleu": 0,
+            "rouge_l": 0.25,
+            "code_bleu": 0.1597222222222222
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "        self.rewards.clear()\n        self.next_states.clear()\n",
+        "hypothesis": "def add_action(self, action):\n        self.actions.append(action)\n\n    def add_state(self, state):",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 10.416666666666668,
+            "bleu": 0,
+            "rouge_l": 0.2857142857142857,
+            "code_bleu": 0.34090909090909094
+        },
+        "label": "Functionally_Different"
+    }
+]

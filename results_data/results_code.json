@@ -1,0 +1,266 @@
+[
+    {
+        "reference": "def make_alpha_dict(text):\n    words = text.split()\n    return {char: [word for word in words if char in word] for char in (''.join(words)) if char.isalpha()}\n",
+        "hypothesis": "def make_alpha_dict(text):\n    words = text.split()\n    alpha_dict = {}\n    for word in words:\n        if word not in alpha_dict:\n            alpha_dict[word] = ",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 3.7593984962406015,
+            "bleu": 0.2288699337434303,
+            "rouge_l": 0.6399999999999999,
+            "code_bleu": 0.3790816072806472
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n",
+        "hypothesis": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n    n = len(sorted_numbers)\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 3.311258278145695,
+            "bleu": 0.7938047857077988,
+            "rouge_l": 0.8333333333333334,
+            "code_bleu": 0.7619817579332644
+        },
+        "label": "Equivalent_Functional_Match"
+    },
+    {
+        "reference": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n",
+        "hypothesis": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n    return sorted_numbers[n//2]\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 3.311258278145695,
+            "bleu": 0.3516189165600834,
+            "rouge_l": 0.8095238095238096,
+            "code_bleu": 0.494585517657804
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n",
+        "hypothesis": "def median(numbers:list[int]):\n    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n    sorted_numbers = sorted(numbers)\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 3.311258278145695,
+            "bleu": 0.8149915117073745,
+            "rouge_l": 0.8333333333333334,
+            "code_bleu": 0.7190036923616238
+        },
+        "label": "Equivalent_Functional_Match"
+    },
+    {
+        "reference": "def forall(pred,iterable):\n    for item in iterable:\n        if not pred(item):\n            return False\n    return True\n",
+        "hypothesis": "def forall(pred,iterable):\n    for item in iterable:\n        if pred(item):\n            return True\n    return False\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 5.952380952380952,
+            "bleu": 0.6007836717631592,
+            "rouge_l": 0.8387096774193549,
+            "code_bleu": 0.6442363562252029
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "def forall(pred,iterable):\n    for item in iterable:\n        if not pred(item):\n            return False\n    return True\n",
+        "hypothesis": "def forall(pred,iterable):\n            return False\n    return True\n    if not iterable:\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 5.952380952380952,
+            "bleu": 0.2663148666059401,
+            "rouge_l": 0.5925925925925926,
+            "code_bleu": 0.29558912169473944
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "    for item in iterable:\n        if not pred(item):\n            return False\n    return True\n\n\n",
+        "hypothesis": "    for item in iterable:\n        if not pred(item):\n            return False\n    return True\n",
+        "metrics": {
+            "exact_match": 1,
+            "chrf": 8.47457627118644,
+            "bleu": 1.0,
+            "rouge_l": 1.0,
+            "code_bleu": 1.0
+        },
+        "label": "Perfect_Match"
+    },
+    {
+        "reference": "        if not pred(item):\n            return False\n    return True\n\n\n",
+        "hypothesis": "        if not pred(item):\n\n            return False\n        return True\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 12.195121951219514,
+            "bleu": 1.0,
+            "rouge_l": 1.0,
+            "code_bleu": 1.0
+        },
+        "label": "Perfect_Match"
+    },
+    {
+        "reference": "    for log in get_logs('SSH.log'):\n        log_journal.add_entry(log)\n        i += 1\n        if i == amount:\n            break\n    return log_journal\n\n\n",
+        "hypothesis": "    for log in get_logs('SSH.log'):\n        if i == amount:\n            break\n    return log_journal\n\n\n            if log.startswith('SSH.log'):\n                amount += 1\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 5.208333333333334,
+            "bleu": 0.5681096832337497,
+            "rouge_l": 0.6666666666666666,
+            "code_bleu": 0.6187504515970168
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "        if i == amount:\n            break\n    return log_journal\n\n\n",
+        "hypothesis": "        if i == amount:\n\n            return True\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 13.157894736842104,
+            "bleu": 0.4548019047027907,
+            "rouge_l": 0.6666666666666666,
+            "code_bleu": 0.5128848384202184
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n",
+        "hypothesis": "            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n                self.ip_dict[ip] = [log]\n\n    def get_ip_dict(self):\n        return self.ip_dict",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 1.0438413361169103,
+            "bleu": 0.8920035746243621,
+            "rouge_l": 0.8633879781420764,
+            "code_bleu": 0.8125968899973794
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "        else:\n            entry_other = Other(entry)\n            self.log_journal.append(entry_other)\n            self.append_ip_dict(entry_other)\n            self.append_date_dict(entry_other)\n\n    def __len__(self):\n        return len(self.log_journal)\n\n    def __contains__(self, item):\n        return item in self.log_journal\n\n    def __iter__(self):\n        return iter(self.log_journal)\n\n    def __getitem__(self, key):\n        if isinstance(key, int):\n            return self.log_journal[key]\n        elif isinstance(key, IPv4Address):\n            return self.ip_dict.get(str(key), None)\n        elif isinstance(key, datetime):\n            return self.date_dict.get(str(key), None)\n        else:\n            raise KeyError(\"Key does not match\")\n\n    def get_logs_with_given_ip(self, searched_ip):\n        return [log for log in self.log_journal if log.has_ip and searched_ip in get_ipv4s_from_log(log.event)]\n\n    def append_ip_dict(self, log):\n        content = log.event\n        ips = get_ipv4s_from_log(content)\n        for ip in ips:\n            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n",
+        "hypothesis": "        else:\n            self.append_date_dict(entry_other)\n\n    def __len__(self):\n        return len(self.log_journal)\n\n    def __contains__(self, item):\n        return item in self.log_journal\n\n    def __iter__(self):\n        return iter(self.log_journal)\n\n    def __getitem__(self, key):\n        if isinstance(key, int):\n            return self.log_journal[key]\n        elif isinstance(key, IPv4Address):\n            return self.ip_dict.get(str(key), None)\n        elif isinstance(key, datetime):\n            return self.date_dict.get(str(key), None)\n        else:\n            raise KeyError(\"Key does not match\")\n\n    def get_logs_with_given_ip(self, searched_ip):\n        return [log for log in self.log_journal if log.has_ip and searched_ip in get_ipv4s_from_log(log.event)]\n\n    def append_ip_dict(self, log):\n        content = log.event\n        ips = get_ipv4s_from_log(content)\n        for ip in ips:\n            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n            self.append_date_dict(entry_other)\n\n    def append_date_dict(self, entry_other):\n        if isinstance",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 0.4078303425774878,
+            "bleu": 0.949024964083448,
+            "rouge_l": 0.9333333333333333,
+            "code_bleu": 0.8251026028479461
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n",
+        "hypothesis": "        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n            if date_match:\n                date_lower = date_match.group(1)\n                date_upper = date_match.group(",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 1.7605633802816902,
+            "bleu": 0.6849600504659497,
+            "rouge_l": 0.6666666666666666,
+            "code_bleu": 0.6934612930109516
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "def load_logs(path, model, pred_fun=lambda item1, item2, item3: True, date_lower=None, date_upper=None):\n    model.clear()\n    with open(path, 'r', encoding='utf-8') as file:\n        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n",
+        "hypothesis": "def load_logs(path, model, pred_fun=lambda item1, item2, item3: True, date_lower=None, date_upper=None):\n    model.clear()\n    with open(path, 'r', encoding='utf-8') as file:\n            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n        for line in file:\n            if line.startswith('Date:'):\n                date_match = log_date_regex.search(line)",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 1.1520737327188941,
+            "bleu": 0.8259564630390251,
+            "rouge_l": 0.8705882352941177,
+            "code_bleu": 0.78111169124827
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n",
+        "hypothesis": "        for line in file:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n            if line.startswith('Date:'):\n                date_match = re.search(r'Date: (\\d{4})', line)",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 1.7605633802816902,
+            "bleu": 0.6690757543184649,
+            "rouge_l": 0.75,
+            "code_bleu": 0.6966786928131636
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "    if tokens[5] != '\"\"':\n        path = tokens[5] + \" \" + tokens[6] + \" \" + tokens[7]\n    else:\n        path = tokens[5]\n\n    log_code = int(tokens[-2])\n    bytes_amount = int(tokens[-1]) if tokens[-1] != \"-\" else 0\n    log_data = domain, date, path, log_code, bytes_amount\n\n    return log_data\n\n\n",
+        "hypothesis": "    if tokens[5] != '\"\"':\n        path = tokens[5] + \" \" + tokens[6] + \" \" + tokens[7]\n    else:\n    log_code = int(tokens[-2])\n    bytes_amount = int(tokens[-1]) if tokens[-1] != \"-\" else 0\n    log_data = domain, date, path, log_code, bytes_amount\n\n    return log_data\n\n\n        path = tokens[5] + \" \" + tokens[6] + \" \" + tokens[7]\n    return path\n\ndef get",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 2.314814814814815,
+            "bleu": 0.6854527103864726,
+            "rouge_l": 0.8444444444444446,
+            "code_bleu": 0.8593061746385515
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "    def forward(self, x):\n        output = self.qnet(x)\n        return output",
+        "hypothesis": "    def forward(self, x):\n        output = self.qnet(x)\n        return output\n",
+        "metrics": {
+            "exact_match": 1,
+            "chrf": 9.25925925925926,
+            "bleu": 1.0,
+            "rouge_l": 1.0,
+            "code_bleu": 1.0
+        },
+        "label": "Perfect_Match"
+    },
+    {
+        "reference": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output",
+        "hypothesis": "class QNet(nn.Module):\n        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output    def __init__(self, input_dims, n_actions):\n",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 1.8181818181818181,
+            "bleu": 0.8373841607048005,
+            "rouge_l": 0.8627450980392157,
+            "code_bleu": 0.8010330560575402
+        },
+        "label": "Equivalent_Functional_Match"
+    },
+    {
+        "reference": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output",
+        "hypothesis": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n           ",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 1.8181818181818181,
+            "bleu": 0.8547305998833805,
+            "rouge_l": 0.8623853211009175,
+            "code_bleu": 0.804364939622266
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output",
+        "hypothesis": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output        super(QNet, self).__init__()\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, ",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 1.8181818181818181,
+            "bleu": 0.7736680847834176,
+            "rouge_l": 0.8750000000000001,
+            "code_bleu": 0.7299151479759876
+        },
+        "label": "Partial_Functional_Match"
+    },
+    {
+        "reference": "    def sample_data(self):\n        indices = random.sample(range(len(self.states)), self.batch_size)\n",
+        "hypothesis": "    def sample_data(self):\n        return self.data\n\n    def __len__(self):\n        return len(self.data)\n\n    def __getitem__(self, idx):\n       ",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 5.74712643678161,
+            "bleu": 0.03986357128268015,
+            "rouge_l": 0.43750000000000006,
+            "code_bleu": 0.23496589282067007
+        },
+        "label": "Functionally_Different"
+    },
+    {
+        "reference": "    def clear_lists(self):\n        self.actions.clear()\n        self.states.clear()\n        self.rewards.clear()\n        self.next_states.clear()\n",
+        "hypothesis": "    def clear_lists(self):\n        self.actions.clear()\n        self.states.clear()\n\n    def add_action(self, action):\n        self.actions.append(action)\n\n    def add_state(self, state):\n       ",
+        "metrics": {
+            "exact_match": 0,
+            "chrf": 4.62962962962963,
+            "bleu": 0.23462350320528,
+            "rouge_l": 0.6341463414634146,
+            "code_bleu": 0.6048077176693891
+        },
+        "label": "Functionally_Different"
+    }
+]

@@ -1,0 +1,122 @@
+[
+    {
+        "prefix": "def make_alpha_dict(text):\n    words = text.split()\n",
+        "middle": "    return {char: [word for word in words if char in word] for char in (''.join(words)) if char.isalpha()}\n",
+        "suffix": ""
+    },
+    {
+        "prefix": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n",
+        "middle": "    n = len(sorted_numbers)\n",
+        "suffix": "    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n"
+    },
+    {
+        "prefix": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n",
+        "middle": "    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n",
+        "suffix": ""
+    },
+    {
+        "prefix": "def median(numbers:list[int]):\n",
+        "middle": "    sorted_numbers = sorted(numbers)\n",
+        "suffix": "    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n"
+    },
+    {
+        "prefix": "def forall(pred,iterable):\n    for item in iterable:\n",
+        "middle": "        if not pred(item):\n            return False\n    return True\n",
+        "suffix": ""
+    },
+    {
+        "prefix": "def forall(pred,iterable):\n",
+        "middle": "    for item in iterable:\n        if not pred(item):\n",
+        "suffix": "            return False\n    return True\n"
+    },
+    {
+        "prefix": "    for item in iterable:\n        if not pred(item):\n            return False\n",
+        "middle": "    return True\n\n\n",
+        "suffix": ""
+    },
+    {
+        "prefix": "        if not pred(item):\n",
+        "middle": "            return False\n    return True\n\n",
+        "suffix": "\n"
+    },
+    {
+        "prefix": "    for log in get_logs('SSH.log'):\n",
+        "middle": "        log_journal.add_entry(log)\n        i += 1\n",
+        "suffix": "        if i == amount:\n            break\n    return log_journal\n\n\n"
+    },
+    {
+        "prefix": "        if i == amount:\n",
+        "middle": "            break\n    return log_journal\n\n",
+        "suffix": "\n"
+    },
+    {
+        "prefix": "            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n",
+        "middle": "                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n",
+        "suffix": "        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n"
+    },
+    {
+        "prefix": "        else:\n",
+        "middle": "            entry_other = Other(entry)\n            self.log_journal.append(entry_other)\n            self.append_ip_dict(entry_other)\n",
+        "suffix": "            self.append_date_dict(entry_other)\n\n    def __len__(self):\n        return len(self.log_journal)\n\n    def __contains__(self, item):\n        return item in self.log_journal\n\n    def __iter__(self):\n        return iter(self.log_journal)\n\n    def __getitem__(self, key):\n        if isinstance(key, int):\n            return self.log_journal[key]\n        elif isinstance(key, IPv4Address):\n            return self.ip_dict.get(str(key), None)\n        elif isinstance(key, datetime):\n            return self.date_dict.get(str(key), None)\n        else:\n            raise KeyError(\"Key does not match\")\n\n    def get_logs_with_given_ip(self, searched_ip):\n        return [log for log in self.log_journal if log.has_ip and searched_ip in get_ipv4s_from_log(log.event)]\n\n    def append_ip_dict(self, log):\n        content = log.event\n        ips = get_ipv4s_from_log(content)\n        for ip in ips:\n            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n"
+    },
+    {
+        "prefix": "        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n",
+        "middle": "            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n",
+        "suffix": "                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n"
+    },
+    {
+        "prefix": "def load_logs(path, model, pred_fun=lambda item1, item2, item3: True, date_lower=None, date_upper=None):\n    model.clear()\n    with open(path, 'r', encoding='utf-8') as file:\n",
+        "middle": "        for line in file:\n            item = QStandardItem(line)\n",
+        "suffix": "            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n"
+    },
+    {
+        "prefix": "        for line in file:\n",
+        "middle": "            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n            if date_match:\n",
+        "suffix": "                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n"
+    },
+    {
+        "prefix": "    if tokens[5] != '\"\"':\n        path = tokens[5] + \" \" + tokens[6] + \" \" + tokens[7]\n    else:\n",
+        "middle": "        path = tokens[5]\n\n",
+        "suffix": "    log_code = int(tokens[-2])\n    bytes_amount = int(tokens[-1]) if tokens[-1] != \"-\" else 0\n    log_data = domain, date, path, log_code, bytes_amount\n\n    return log_data\n\n\n"
+    },
+    {
+        "prefix": "    def forward(self, x):\n        output = self.qnet(x)\n",
+        "middle": "        return output",
+        "suffix": ""
+    },
+    {
+        "prefix": "class QNet(nn.Module):\n",
+        "middle": "    def __init__(self, n_actions, input_dims):\n",
+        "suffix": "        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output"
+    },
+    {
+        "prefix": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n",
+        "middle": "\n        self.qnet = nn.Sequential(\n",
+        "suffix": "            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output"
+    },
+    {
+        "prefix": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n",
+        "middle": "        super().__init__()\n",
+        "suffix": "\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output"
+    },
+    {
+        "prefix": "    def sample_data(self):\n",
+        "middle": "        indices = random.sample(range(len(self.states)), self.batch_size)\n",
+        "suffix": ""
+    },
+    {
+        "prefix": "    def sample_data(self):\n",
+        "middle": "        indices = random.sample(range(len(self.states)), self.batch_size)\n",
+        "suffix": ""
+    },
+    {
+        "prefix": "    def sample_data(self):\n",
+        "middle": "        indices = random.sample(range(len(self.states)), self.batch_size)\n",
+        "suffix": ""
+    },
+    {
+        "prefix": "    def clear_lists(self):\n        self.actions.clear()\n        self.states.clear()\n",
+        "middle": "        self.rewards.clear()\n        self.next_states.clear()\n",
+        "suffix": ""
+    }
+]

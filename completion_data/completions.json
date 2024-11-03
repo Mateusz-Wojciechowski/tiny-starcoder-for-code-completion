@@ -1,0 +1,156 @@
+[
+    {
+        "correct_code": "def make_alpha_dict(text):\n    words = text.split()\n    return {char: [word for word in words if char in word] for char in (''.join(words)) if char.isalpha()}\n",
+        "completed_code": "def make_alpha_dict(text):\n    words = text.split()\n    alpha_dict = {}\n    for word in words:\n        if word not in alpha_dict:\n            alpha_dict[word] = ",
+        "correct_middle": "    return {char: [word for word in words if char in word] for char in (''.join(words)) if char.isalpha()}\n",
+        "prefix": "def make_alpha_dict(text):\n    words = text.split()\n",
+        "suffix": ""
+    },
+    {
+        "correct_code": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n",
+        "completed_code": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n    n = len(sorted_numbers)\n",
+        "correct_middle": "    n = len(sorted_numbers)\n",
+        "prefix": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n",
+        "suffix": "    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n"
+    },
+    {
+        "correct_code": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n",
+        "completed_code": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n    return sorted_numbers[n//2]\n",
+        "correct_middle": "    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n",
+        "prefix": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n",
+        "suffix": ""
+    },
+    {
+        "correct_code": "def median(numbers:list[int]):\n    sorted_numbers = sorted(numbers)\n    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n",
+        "completed_code": "def median(numbers:list[int]):\n    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n    sorted_numbers = sorted(numbers)\n",
+        "correct_middle": "    sorted_numbers = sorted(numbers)\n",
+        "prefix": "def median(numbers:list[int]):\n",
+        "suffix": "    n = len(sorted_numbers)\n    middle = n //2\n    return (sorted_numbers[middle] + sorted_numbers[-middle]) / 2\n"
+    },
+    {
+        "correct_code": "def forall(pred,iterable):\n    for item in iterable:\n        if not pred(item):\n            return False\n    return True\n",
+        "completed_code": "def forall(pred,iterable):\n    for item in iterable:\n        if pred(item):\n            return True\n    return False\n",
+        "correct_middle": "        if not pred(item):\n            return False\n    return True\n",
+        "prefix": "def forall(pred,iterable):\n    for item in iterable:\n",
+        "suffix": ""
+    },
+    {
+        "correct_code": "def forall(pred,iterable):\n    for item in iterable:\n        if not pred(item):\n            return False\n    return True\n",
+        "completed_code": "def forall(pred,iterable):\n            return False\n    return True\n    if not iterable:\n",
+        "correct_middle": "    for item in iterable:\n        if not pred(item):\n",
+        "prefix": "def forall(pred,iterable):\n",
+        "suffix": "            return False\n    return True\n"
+    },
+    {
+        "correct_code": "    for item in iterable:\n        if not pred(item):\n            return False\n    return True\n\n\n",
+        "completed_code": "    for item in iterable:\n        if not pred(item):\n            return False\n    return True\n",
+        "correct_middle": "    return True\n\n\n",
+        "prefix": "    for item in iterable:\n        if not pred(item):\n            return False\n",
+        "suffix": ""
+    },
+    {
+        "correct_code": "        if not pred(item):\n            return False\n    return True\n\n\n",
+        "completed_code": "        if not pred(item):\n\n            return False\n        return True\n",
+        "correct_middle": "            return False\n    return True\n\n",
+        "prefix": "        if not pred(item):\n",
+        "suffix": "\n"
+    },
+    {
+        "correct_code": "    for log in get_logs('SSH.log'):\n        log_journal.add_entry(log)\n        i += 1\n        if i == amount:\n            break\n    return log_journal\n\n\n",
+        "completed_code": "    for log in get_logs('SSH.log'):\n        if i == amount:\n            break\n    return log_journal\n\n\n            if log.startswith('SSH.log'):\n                amount += 1\n",
+        "correct_middle": "        log_journal.add_entry(log)\n        i += 1\n",
+        "prefix": "    for log in get_logs('SSH.log'):\n",
+        "suffix": "        if i == amount:\n            break\n    return log_journal\n\n\n"
+    },
+    {
+        "correct_code": "        if i == amount:\n            break\n    return log_journal\n\n\n",
+        "completed_code": "        if i == amount:\n\n            return True\n",
+        "correct_middle": "            break\n    return log_journal\n\n",
+        "prefix": "        if i == amount:\n",
+        "suffix": "\n"
+    },
+    {
+        "correct_code": "            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n",
+        "completed_code": "            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n                self.ip_dict[ip] = [log]\n\n    def get_ip_dict(self):\n        return self.ip_dict",
+        "correct_middle": "                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n",
+        "prefix": "            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n",
+        "suffix": "        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n"
+    },
+    {
+        "correct_code": "        else:\n            entry_other = Other(entry)\n            self.log_journal.append(entry_other)\n            self.append_ip_dict(entry_other)\n            self.append_date_dict(entry_other)\n\n    def __len__(self):\n        return len(self.log_journal)\n\n    def __contains__(self, item):\n        return item in self.log_journal\n\n    def __iter__(self):\n        return iter(self.log_journal)\n\n    def __getitem__(self, key):\n        if isinstance(key, int):\n            return self.log_journal[key]\n        elif isinstance(key, IPv4Address):\n            return self.ip_dict.get(str(key), None)\n        elif isinstance(key, datetime):\n            return self.date_dict.get(str(key), None)\n        else:\n            raise KeyError(\"Key does not match\")\n\n    def get_logs_with_given_ip(self, searched_ip):\n        return [log for log in self.log_journal if log.has_ip and searched_ip in get_ipv4s_from_log(log.event)]\n\n    def append_ip_dict(self, log):\n        content = log.event\n        ips = get_ipv4s_from_log(content)\n        for ip in ips:\n            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n",
+        "completed_code": "        else:\n            self.append_date_dict(entry_other)\n\n    def __len__(self):\n        return len(self.log_journal)\n\n    def __contains__(self, item):\n        return item in self.log_journal\n\n    def __iter__(self):\n        return iter(self.log_journal)\n\n    def __getitem__(self, key):\n        if isinstance(key, int):\n            return self.log_journal[key]\n        elif isinstance(key, IPv4Address):\n            return self.ip_dict.get(str(key), None)\n        elif isinstance(key, datetime):\n            return self.date_dict.get(str(key), None)\n        else:\n            raise KeyError(\"Key does not match\")\n\n    def get_logs_with_given_ip(self, searched_ip):\n        return [log for log in self.log_journal if log.has_ip and searched_ip in get_ipv4s_from_log(log.event)]\n\n    def append_ip_dict(self, log):\n        content = log.event\n        ips = get_ipv4s_from_log(content)\n        for ip in ips:\n            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n            self.append_date_dict(entry_other)\n\n    def append_date_dict(self, entry_other):\n        if isinstance",
+        "correct_middle": "            entry_other = Other(entry)\n            self.log_journal.append(entry_other)\n            self.append_ip_dict(entry_other)\n",
+        "prefix": "        else:\n",
+        "suffix": "            self.append_date_dict(entry_other)\n\n    def __len__(self):\n        return len(self.log_journal)\n\n    def __contains__(self, item):\n        return item in self.log_journal\n\n    def __iter__(self):\n        return iter(self.log_journal)\n\n    def __getitem__(self, key):\n        if isinstance(key, int):\n            return self.log_journal[key]\n        elif isinstance(key, IPv4Address):\n            return self.ip_dict.get(str(key), None)\n        elif isinstance(key, datetime):\n            return self.date_dict.get(str(key), None)\n        else:\n            raise KeyError(\"Key does not match\")\n\n    def get_logs_with_given_ip(self, searched_ip):\n        return [log for log in self.log_journal if log.has_ip and searched_ip in get_ipv4s_from_log(log.event)]\n\n    def append_ip_dict(self, log):\n        content = log.event\n        ips = get_ipv4s_from_log(content)\n        for ip in ips:\n            if ip in self.ip_dict:\n                self.ip_dict[ip].append(log)\n            else:\n                self.ip_dict[ip] = [log]\n\n    def append_date_dict(self, log):\n        log_date = log.time\n        if log_date in self.date_dict:\n            self.date_dict[log_date].append(log)\n        else:\n            self.date_dict[log_date] = [log]\n\n    @staticmethod\n    def determine_log_type(entry):\n        for log_type, regex in analysis_regexes.items():\n            if re.match(regex, entry):\n                if log_type == 'accepted password':\n                    return PasswordAccepted\n                elif log_type == 'failed password':\n                    return PasswordFail\n                elif log_type == 'error':\n                    return Error\n            return Other\n\n\n"
+    },
+    {
+        "correct_code": "        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n",
+        "completed_code": "        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n            if date_match:\n                date_lower = date_match.group(1)\n                date_upper = date_match.group(",
+        "correct_middle": "            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n",
+        "prefix": "        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n",
+        "suffix": "                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n"
+    },
+    {
+        "correct_code": "def load_logs(path, model, pred_fun=lambda item1, item2, item3: True, date_lower=None, date_upper=None):\n    model.clear()\n    with open(path, 'r', encoding='utf-8') as file:\n        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n",
+        "completed_code": "def load_logs(path, model, pred_fun=lambda item1, item2, item3: True, date_lower=None, date_upper=None):\n    model.clear()\n    with open(path, 'r', encoding='utf-8') as file:\n            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n        for line in file:\n            if line.startswith('Date:'):\n                date_match = log_date_regex.search(line)",
+        "correct_middle": "        for line in file:\n            item = QStandardItem(line)\n",
+        "prefix": "def load_logs(path, model, pred_fun=lambda item1, item2, item3: True, date_lower=None, date_upper=None):\n    model.clear()\n    with open(path, 'r', encoding='utf-8') as file:\n",
+        "suffix": "            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n"
+    },
+    {
+        "correct_code": "        for line in file:\n            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n            if date_match:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n",
+        "completed_code": "        for line in file:\n                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n            if line.startswith('Date:'):\n                date_match = re.search(r'Date: (\\d{4})', line)",
+        "correct_middle": "            item = QStandardItem(line)\n            date_match = log_date_regex.search(line)\n            if date_match:\n",
+        "prefix": "        for line in file:\n",
+        "suffix": "                date_str = date_match.group(1)\n                date_obj = datetime.strptime(date_str, loading_date_format).date()\n                if pred_fun(date_lower, date_obj, date_upper):\n                    item.setData(date_obj, Qt.UserRole + 1)\n                    model.appendRow(item)\n\n\n"
+    },
+    {
+        "correct_code": "    if tokens[5] != '\"\"':\n        path = tokens[5] + \" \" + tokens[6] + \" \" + tokens[7]\n    else:\n        path = tokens[5]\n\n    log_code = int(tokens[-2])\n    bytes_amount = int(tokens[-1]) if tokens[-1] != \"-\" else 0\n    log_data = domain, date, path, log_code, bytes_amount\n\n    return log_data\n\n\n",
+        "completed_code": "    if tokens[5] != '\"\"':\n        path = tokens[5] + \" \" + tokens[6] + \" \" + tokens[7]\n    else:\n    log_code = int(tokens[-2])\n    bytes_amount = int(tokens[-1]) if tokens[-1] != \"-\" else 0\n    log_data = domain, date, path, log_code, bytes_amount\n\n    return log_data\n\n\n        path = tokens[5] + \" \" + tokens[6] + \" \" + tokens[7]\n    return path\n\ndef get",
+        "correct_middle": "        path = tokens[5]\n\n",
+        "prefix": "    if tokens[5] != '\"\"':\n        path = tokens[5] + \" \" + tokens[6] + \" \" + tokens[7]\n    else:\n",
+        "suffix": "    log_code = int(tokens[-2])\n    bytes_amount = int(tokens[-1]) if tokens[-1] != \"-\" else 0\n    log_data = domain, date, path, log_code, bytes_amount\n\n    return log_data\n\n\n"
+    },
+    {
+        "correct_code": "    def forward(self, x):\n        output = self.qnet(x)\n        return output",
+        "completed_code": "    def forward(self, x):\n        output = self.qnet(x)\n        return output\n",
+        "correct_middle": "        return output",
+        "prefix": "    def forward(self, x):\n        output = self.qnet(x)\n",
+        "suffix": ""
+    },
+    {
+        "correct_code": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output",
+        "completed_code": "class QNet(nn.Module):\n        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output    def __init__(self, input_dims, n_actions):\n",
+        "correct_middle": "    def __init__(self, n_actions, input_dims):\n",
+        "prefix": "class QNet(nn.Module):\n",
+        "suffix": "        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output"
+    },
+    {
+        "correct_code": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output",
+        "completed_code": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n           ",
+        "correct_middle": "\n        self.qnet = nn.Sequential(\n",
+        "prefix": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n",
+        "suffix": "            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output"
+    },
+    {
+        "correct_code": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n        super().__init__()\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output",
+        "completed_code": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output        super(QNet, self).__init__()\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, ",
+        "correct_middle": "        super().__init__()\n",
+        "prefix": "class QNet(nn.Module):\n    def __init__(self, n_actions, input_dims):\n",
+        "suffix": "\n        self.qnet = nn.Sequential(\n            nn.Linear(input_dims, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, 256),\n            nn.ReLU(),\n            nn.Linear(256, n_actions)\n        )\n\n    def forward(self, x):\n        output = self.qnet(x)\n        return output"
+    },
+    {
+        "correct_code": "    def sample_data(self):\n        indices = random.sample(range(len(self.states)), self.batch_size)\n",
+        "completed_code": "    def sample_data(self):\n        return self.data\n\n    def __len__(self):\n        return len(self.data)\n\n    def __getitem__(self, idx):\n       ",
+        "correct_middle": "        indices = random.sample(range(len(self.states)), self.batch_size)\n",
+        "prefix": "    def sample_data(self):\n",
+        "suffix": ""
+    },
+    {
+        "correct_code": "    def clear_lists(self):\n        self.actions.clear()\n        self.states.clear()\n        self.rewards.clear()\n        self.next_states.clear()\n",
+        "completed_code": "    def clear_lists(self):\n        self.actions.clear()\n        self.states.clear()\n\n    def add_action(self, action):\n        self.actions.append(action)\n\n    def add_state(self, state):\n       ",
+        "correct_middle": "        self.rewards.clear()\n        self.next_states.clear()\n",
+        "prefix": "    def clear_lists(self):\n        self.actions.clear()\n        self.states.clear()\n",
+        "suffix": ""
+    }
+]
